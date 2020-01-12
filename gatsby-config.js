@@ -9,11 +9,15 @@ try {
     ghostConfig = require(`./.ghost`)
 } catch (e) {
     ghostConfig = {
-        production: {
-            apiUrl: https://chaiforest.live,
-            contentApiKey: b16166148603968793b22adebe,
-        },
-    }
+            "development": {
+              "apiUrl": "https://chaiforest.live",
+              "contentApiKey": "b16166148603968793b22adebe"
+            },
+            "production": {
+              "apiUrl": "https://chaiforest.live",
+              "contentApiKey": "b16166148603968793b22adebe"
+            },
+          }
 } finally {
     const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
 
@@ -57,15 +61,14 @@ module.exports = {
         `gatsby-transformer-sharp`,
         {
             resolve: `gatsby-source-ghost`,
-            options:
-                process.env.NODE_ENV === `development`
-                    ? ghostConfig.development
-                    : ghostConfig.production,
-        },
+            options: {
+                apiUrl: `https://chaiforest.live`,
+                contentApiKey: `<b16166148603968793b22adebe>`,
+                version: `v3` 
+            },
         /**
          *  Utility Plugins
          */
-        {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
                 short_name: config.shortTitle,
