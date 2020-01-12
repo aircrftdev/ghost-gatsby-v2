@@ -10,8 +10,8 @@ try {
 } catch (e) {
     ghostConfig = {
         production: {
-            apiUrl: process.env.GHOST_API_URL,
-            contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+            apiUrl: https://chaiforest.live,
+            contentApiKey: b16166148603968793b22adebe,
         },
     }
 } finally {
